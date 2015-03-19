@@ -38,10 +38,7 @@ public class Solution {
                 } else { valid = false; }
                 j++;
             }
-
             if (valid && ntable.isEmpty()) ans.add(i);
-                    
-
         }
         return ans;
     }
