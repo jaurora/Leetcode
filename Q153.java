@@ -4,24 +4,23 @@ import java.lang.*;
 public class Solution {
     public int findMin(int[] nums) {
         int len = nums.length;
-        int head = 0; 
-        int tail = len-1;
-        while (tail > head) {
-            int mid = (head + tail) / 2;
-             if (nums[mid] > nums[head]) {
-                if (nums[tail] > nums[mid]) return nums[head];
-                head = mid+1;
-            } else { 
-                 if (mid == head) return Math.min(nums[head], nums[tail]);
-                tail = mid; 
-            }
-        }
-        return nums[head];
+        return findMin(nums, 0, len-1);
+    }                                              
+  
+    private int findMin(int[] num, int start, int end) {
+        if (start == end) return num[start];
+        if (start == end-1) return Math.min(num[start], num[end]);
+        if (num[start] < num[end]) return num[start];
+
+        int mid = start + (end-start)/2;
+        if (num[mid] > num[start]) return findMin(num, mid+1, end);
+        else return findMin(num, start, mid);
     }
+
 
    public static void main(String[] args) {
        Solution slu = new Solution();
-       int[] a = new int[] {4, 5,6,7,8,9,10, 0, 1, 2};
+       int[] a = new int[] {4, 5,6, 0, 1, 2};
        StdOut.println(slu.findMin(a));
    }
 }
