@@ -14,7 +14,6 @@ public class Solution {
             else if (in == n) { nums1[i] = nums0[im]; im++; }
             else if (nums0[im] >   nums2[in]) { nums1[i] = nums2[in]; in++; }
             else { nums1[i] = nums0[im]; im++; }
-            //StdOut.println(nums1[i]);
         }        
     }
     
