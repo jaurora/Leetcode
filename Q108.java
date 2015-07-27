@@ -12,9 +12,26 @@ import java.lang.*;
  */
 
 public class Solution {
-    private List<TreeNode>> ans = new ArrayList<TreeNode>();
-    public List<TreeNode> generateTrees(int n) {
-        
+    private int[] num;
+    private TreeNode root;
+    public TreeNode sortedArrayToBST(int[] nums) {
+        num = nums;
+        bst(0, num.length-1, null, false);
+        return root;
+    }
+
+    private void bst(int start, int end, TreeNode tn, boolean left) {
+        if (start <= end) {
+            int mid  = (start+end)/2;
+            TreeNode x = new TreeNode(num[mid]);
+            if (tn == null) root = x;
+            else {
+                if (left) tn.left = x;
+                else tn.right = x;
+            }
+            bst(start, mid-1, x, true);
+            bst(mid+1, end, x, false);
+        }
     }
 
 
