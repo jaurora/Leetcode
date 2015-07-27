@@ -15,7 +15,7 @@ import java.lang.*;
 public class Solution {
     public void flatten(TreeNode root) {
         TreeNode x = root;
-        while (x) {
+        while (x != null) {
             if (x.left != null) {
                 TreeNode p = x.left;
                 while (p.right != null) p=p.right;
